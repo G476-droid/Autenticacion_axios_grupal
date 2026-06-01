@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import { AppStackParamList } from '../../../navigation/typeNavigation';
+import { AppStackParamList } from '../../navigation/typeNavigation';
 import { detailStyles } from '../../styles/appStyle';
 
 type DetailScreenNavigationProp = StackScreenProps<AppStackParamList, 'Detail'>;

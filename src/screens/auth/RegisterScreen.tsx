@@ -7,7 +7,7 @@ import {
   Platform,
 } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { AuthStackParamList } from "../../../navigation/typeNavigation";
+import { AuthStackParamList } from "../../navigation/typeNavigation";
 import {
   isValidEmail,
   isValidPassword,

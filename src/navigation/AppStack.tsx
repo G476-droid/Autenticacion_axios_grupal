@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AppStackParamList } from "./typeNavigation";
-import { HomeScreen } from "../components/screens/app/HomeScreen";
-import { DetailScreen } from "../components/screens/app/DetailScreen";
+import { HomeScreen } from "../screens/app/HomeScreen";
+import { DetailScreen } from "../screens/app/DetailScreen";
 
 const Stack = createStackNavigator<AppStackParamList>();
 

@@ -9,7 +9,7 @@ import {
   Platform,
 } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { AuthStackParamList } from "../../../navigation/typeNavigation";
+import { AuthStackParamList } from "../../navigation/typeNavigation";
 import { LoginForm } from "../../types/auth";
 import { isValidEmail, isValidPassword } from "../../utils/validators";
 import { loginStyles } from "../../styles/appStyle";

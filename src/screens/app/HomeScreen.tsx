@@ -6,7 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import { AppStackParamList } from '../../../navigation/typeNavigation';
+import { AppStackParamList } from '../../navigation/typeNavigation';
 import { homeStyles } from '../../styles/appStyle';
 import { Card } from '../../components/ui/Card';
 

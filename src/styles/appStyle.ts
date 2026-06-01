@@ -61,7 +61,7 @@ export const homeStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 20,
-    paddingTop:73,
+    paddingTop: 73,
     backgroundColor: "#FFFFFF",
     borderBottomWidth: 1,
     borderBottomColor: "#E2E8F0",
@@ -82,9 +82,23 @@ export const homeStyles = StyleSheet.create({
     fontWeight: "700",
     color: "#2D3748",
     paddingHorizontal: 20,
-    paddingVertical: 14,
+    paddingTop: 14,
+    paddingBottom: 10,
   },
-  list: { paddingHorizontal: 20, paddingBottom: 20 },
+  searchWrapper: {
+    paddingHorizontal: 20,
+    paddingBottom: 14,
+  },
+  searchInput: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#E2E8F0",
+    paddingHorizontal: 16,
+    height: 48,
+    color: "#2D3748",
+  },
+  list: { paddingHorizontal: 20, paddingBottom: 20, flexGrow: 1 },
   errorContainer: {
     flex: 1,
     justifyContent: "center",
@@ -93,11 +107,30 @@ export const homeStyles = StyleSheet.create({
   },
   errorEmoji: { fontSize: 56, marginBottom: 12 },
   errorText: { fontSize: 16, color: "#718096", textAlign: "center" },
+  retryButton: {
+    marginTop: 16,
+    minWidth: 160,
+  },
+  emptyContainer: {
+    paddingTop: 40,
+    alignItems: "center",
+  },
+  emptyText: {
+    fontSize: 16,
+    color: "#718096",
+  },
 });
 
 export const detailStyles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#F7FAFC" },
   content: { padding: 24 },
+  image: {
+    width: "100%",
+    height: 320,
+    borderRadius: 24,
+    marginBottom: 20,
+    backgroundColor: "#E2E8F0",
+  },
   meta: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -120,15 +153,34 @@ export const detailStyles = StyleSheet.create({
     textTransform: "capitalize",
   },
   divider: { height: 1, backgroundColor: "#E2E8F0", marginVertical: 20 },
-  bodyLabel: {
-    fontSize: 13,
-    fontWeight: "700",
-    color: "#A0AEC0",
-    textTransform: "uppercase",
-    letterSpacing: 1,
-    marginBottom: 10,
+  infoCard: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    padding: 20,
+    gap: 14,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
   },
-  body: { fontSize: 16, color: "#4A5568", lineHeight: 26 },
+  infoRow: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#EDF2F7",
+    paddingBottom: 12,
+  },
+  infoLabel: {
+    fontSize: 12,
+    color: "#718096",
+    marginBottom: 4,
+    textTransform: "uppercase",
+    fontWeight: "700",
+  },
+  infoValue: {
+    fontSize: 16,
+    color: "#1A202C",
+    fontWeight: "600",
+  },
   errorContainer: {
     flex: 1,
     justifyContent: "center",
@@ -137,6 +189,10 @@ export const detailStyles = StyleSheet.create({
   },
   errorEmoji: { fontSize: 56, marginBottom: 12 },
   errorText: { fontSize: 16, color: "#718096", textAlign: "center" },
+  retryButton: {
+    marginTop: 16,
+    minWidth: 160,
+  },
 });
 
 export const loadingStyles = StyleSheet.create({
@@ -174,6 +230,13 @@ export const cardStyles = StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 3,
+  },
+  image: {
+    width: "100%",
+    height: 180,
+    borderRadius: 14,
+    marginBottom: 14,
+    backgroundColor: "#E2E8F0",
   },
   header: {
     flexDirection: "row",

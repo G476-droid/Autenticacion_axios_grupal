@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   Text,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { AuthStackParamList } from "../../navigation/typeNavigation";
@@ -17,6 +18,7 @@ import { registerStyles } from "../../styles/appStyle";
 import { Input } from "../../components/ui/Input";
 import { Button } from "../../components/ui/Button";
 import { RegisterForm } from "../../types/auth";
+import { AuthContext } from "../../context/AuthContext";
 
 type RegisterScreenNavigationProp = StackScreenProps<
   AuthStackParamList,
@@ -26,6 +28,7 @@ type RegisterScreenNavigationProp = StackScreenProps<
 export const RegisterScreen = ({
   navigation,
 }: RegisterScreenNavigationProp) => {
+  const { signUp } = useContext(AuthContext);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmError, setConfirmError] = useState("");
@@ -60,6 +63,24 @@ export const RegisterScreen = ({
       valid = false;
     }
     return valid;
+  };
+
+  const handleRegister = async () => {
+    if (!validate()) return;
+    setLoading(true);
+    const error = await signUp(
+      registerForm.email.trim(),
+      registerForm.password
+    );
+    setLoading(false);
+
+    if (error) {
+      Alert.alert("No se pudo registrar", error);
+      return;
+    }
+
+    Alert.alert("Cuenta creada", "Ya puedes iniciar sesión.");
+    navigation.goBack();
   };
 
   return (
@@ -104,7 +125,7 @@ export const RegisterScreen = ({
           />
           <Button
             title="Registrarse"
-            onPress={() => {}}
+            onPress={handleRegister}
             loading={loading}
             style={registerStyles.button}
           />

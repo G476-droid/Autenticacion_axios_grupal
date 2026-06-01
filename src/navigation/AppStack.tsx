@@ -31,7 +31,7 @@ const AppStack = () => {
         name="Detail"
         component={DetailScreen}
         options={({ route }) => ({
-          title: "Detalle del Post",
+          title: route.params.name,
           headerShown: true,
         })}
       />

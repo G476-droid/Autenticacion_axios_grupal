@@ -10,7 +10,6 @@ export interface RegisterForm {
 }
 
 export interface AuthUser {
-  uid: string;
+  id: string;
   email: string | null;
-  displayName: string | null;
 }

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   ScrollView,
   Alert,
   KeyboardAvoidingView,
@@ -15,10 +14,12 @@ import { isValidEmail, isValidPassword } from "../../utils/validators";
 import { loginStyles } from "../../styles/appStyle";
 import { Input } from "../../components/ui/Input";
 import { Button } from "../../components/ui/Button";
+import { AuthContext } from "../../context/AuthContext";
 
 type LoginScreenNavigationProp = StackScreenProps<AuthStackParamList, "Login">;
 
 export const LoginScreen = ({ navigation }: LoginScreenNavigationProp) => {
+  const { signIn } = useContext(AuthContext);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -46,6 +47,17 @@ export const LoginScreen = ({ navigation }: LoginScreenNavigationProp) => {
       valid = false;
     }
     return valid;
+  };
+
+  const handleLogin = async () => {
+    if (!validate()) return;
+    setLoading(true);
+    const error = await signIn(loginForm.email.trim(), loginForm.password);
+    setLoading(false);
+
+    if (error) {
+      Alert.alert("No se pudo iniciar", error);
+    }
   };
 
   return (
@@ -82,7 +94,7 @@ export const LoginScreen = ({ navigation }: LoginScreenNavigationProp) => {
           />
           <Button
             title="Iniciar Sesión"
-            onPress={()=>{}}
+            onPress={handleLogin}
             loading={loading}
             style={loginStyles.button}
           />
